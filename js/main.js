@@ -1,27 +1,3 @@
-do {
-    op = parseInt(prompt("Bienvenido a su sistema de Gestión de Alumnos (GDA). Ingrese la opción que desea realizar hoy: \n1_Agregar alumno nuevo.\n2_ Modificar alumno.\n3_ Listar alumnos por apellido.\n4_Definir abanderados.\n5_ Filtrar alumnos por curso.\n 0_ Salir."))
-    switch (op){
-        case 1:
-            agregarAlumno();
-            break
-        case 2:
-            modificarAlumno(alumnos);
-            break
-        case 3:
-            alumnosApellido(alumnos);
-            break
-        case 4:
-            abanderados(alumnos);
-            break    
-        case 5:
-            filtrarAlumnos(alumnos);
-            break
-        case 0:
-            alert(0)
-            break    
-    }
-}while(3 < op < 0)
-
 function agregarAlumno() {
     const nom = prompt("Ingrese el nombre: ");
     const ap = prompt("Ingrese el apellido: ");
@@ -38,7 +14,7 @@ function agregarAlumno() {
 
 function modificarAlumno(alumnos) {
     do {
-        opc = parseInt(prompt("Qué desea realizar: \n1. Modificar promedio.\n2. Eliminar alumno. \n3. Salir."));
+        opc = parseInt(prompt("Qué desea realizar: \n1. Modificar promedio.\n2. Eliminar alumno. \n0. Salir."));
         switch(opc) {
             case 1:
                 modPromedio(alumnos);
@@ -46,10 +22,10 @@ function modificarAlumno(alumnos) {
             case 2:
                 eliAlumno(alumnos);
                 break
-            case 3:
+            case 0:
                 break
         }
-    } while (3 < opc < 0);
+    } while (opc != 0);
 }
 
 function modPromedio(alumnos) {
@@ -109,3 +85,28 @@ function filtrarAlumnos(alumnos) {
         alert("ID: " + alumnosPorCurso[est].id + "\nNombre: " + alumnosPorCurso[est].nombre + " "  + alumnosPorCurso[est].apellido + "\nPromedio: " + alumnosPorCurso[est].promedio + "\nCurso: " + alumnosPorCurso[est].curso + "\nAño: " + alumnosPorCurso[est].anio + "\nGenero: " + alumnosPorCurso[est].genero);
     }
 }
+
+
+do {
+    op = parseInt(prompt("Bienvenido a su sistema de Gestión de Alumnos (GDA). Ingrese la opción que desea realizar hoy: \n1_Agregar alumno nuevo.\n2_ Modificar alumno.\n3_ Listar alumnos por apellido.\n4_Definir abanderados.\n5_ Filtrar alumnos por curso.\n 0_ Salir."))
+    switch (op){
+        case 1:
+            agregarAlumno();
+            break
+        case 2:
+            modificarAlumno(alumnos);
+            break
+        case 3:
+            alumnosApellido(alumnos);
+            break
+        case 4:
+            abanderados(alumnos);
+            break    
+        case 5:
+            filtrarAlumnos(alumnos);
+            break
+        case 0:
+            alert(0)
+            break    
+    }
+}while(op =! 0)
